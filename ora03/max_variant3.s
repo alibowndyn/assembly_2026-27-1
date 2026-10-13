@@ -11,11 +11,11 @@ c:		.4byte	-1
 main:	mov		eax, DWORD PTR [a]
 		mov		ebx, DWORD PTR [b]
 		cmp		eax, ebx				# a>=b ?
-		jl  	NEXT1					# short-circuit evaluation
+		jl		NEXT1					# short-circuit evaluation
 		mov		eax, DWORD PTR [a]
 		mov		ebx, DWORD PTR [c]
 		cmp		eax, ebx				# a>=c ?
-		jl  	NEXT1
+		jl		NEXT1
 
 		mov		eax, DWORD PTR [a]
 		jmp		OUT						# return a
@@ -23,7 +23,7 @@ main:	mov		eax, DWORD PTR [a]
 NEXT1:	mov		eax, DWORD PTR [b]
 		mov		ebx, DWORD PTR [c]
 		cmp		eax, ebx				# b>=c ?
-		jl  	NEXT2
+		jl		NEXT2
 		mov		eax, DWORD PTR [b]
 		jmp		OUT						# return b
 

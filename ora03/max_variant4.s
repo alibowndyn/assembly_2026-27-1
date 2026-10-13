@@ -11,13 +11,13 @@ c:		.4byte	-1
 main:	mov		eax, DWORD PTR [b]
 		mov		ebx, DWORD PTR [a]
 		cmp		eax, ebx				# b>a ?
-		jle  	NEXT1
-		mov 	DWORD PTR [a], eax		# a=b
+		jle		NEXT1
+		mov		DWORD PTR [a], eax		# a=b
 NEXT1:	mov		eax, DWORD PTR [c]
 		mov		ebx, DWORD PTR [a]
 		cmp		eax, ebx				# c>a ?
-		jle  	OUT
-		mov 	DWORD PTR [a], eax		# a=c
+		jle		OUT
+		mov		DWORD PTR [a], eax		# a=c
 OUT:	mov		eax, DWORD PTR [a]		# return a
 		ret
 

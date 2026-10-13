@@ -12,11 +12,11 @@ c:		.4byte	-1
 main:	mov		eax, DWORD PTR [a]
 		mov		ebx, DWORD PTR [b]
 		cmp		eax, ebx				# a>b ?
-		jle 	NEXT1					# short-circuit evaluation
+		jle		NEXT1					# short-circuit evaluation
 		mov		eax, DWORD PTR [a]
 		mov		ebx, DWORD PTR [c]
 		cmp		eax, ebx				# a>c ?
-		jle 	NEXT1
+		jle		NEXT1
 
 		mov		eax, DWORD PTR [a]
 		jmp		OUT						# return a
@@ -24,11 +24,11 @@ main:	mov		eax, DWORD PTR [a]
 NEXT1:	mov		eax, DWORD PTR [b]
 		mov		ebx, DWORD PTR [a]
 		cmp		eax, ebx				# b>a ?
-		jle 	NEXT2					# short-circuit evaluation
+		jle		NEXT2					# short-circuit evaluation
 		mov		eax, DWORD PTR [b]
 		mov		ebx, DWORD PTR [c]
 		cmp		eax, ebx				# b>c ?
-		jle 	NEXT2
+		jle		NEXT2
 
 		mov		eax, DWORD PTR [b]
 		jmp		OUT						# return b
@@ -36,11 +36,11 @@ NEXT1:	mov		eax, DWORD PTR [b]
 NEXT2:	mov		eax, DWORD PTR [c]
 		mov		ebx, DWORD PTR [a]
 		cmp		eax, ebx				# c>a ?
-		jle 	OUT						# short-circuit evaluation; technically impossible
+		jle		OUT						# short-circuit evaluation
 		mov		eax, DWORD PTR [c]
 		mov		ebx, DWORD PTR [b]
 		cmp		eax, ebx				# c>b ?
-		jle 	OUT
+		jle		OUT
 
 		mov		eax, DWORD PTR [c]		# return c
 

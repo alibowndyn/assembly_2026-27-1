@@ -9,28 +9,31 @@ c:		.4byte	-1
 
 	.text
 main:	mov		eax, DWORD PTR [a]
-		mov 	ebx, DWORD PTR [b]
+		mov		ebx, DWORD PTR [b]
 		cmp		eax, ebx
 		jle		ELSE1					# a>b ?
+
 # a>b
 		mov		eax, DWORD PTR [a]
-		mov 	ebx, DWORD PTR [c]
-		cmp 	eax, ebx				# a>c ?
-		jle     ELSE2
-		mov 	eax, DWORD PTR [a]
+		mov		ebx, DWORD PTR [c]
+		cmp		eax, ebx				# a>c ?
+		jle		ELSE2
+		mov		eax, DWORD PTR [a]
 		jmp		OUT						# return a
+
 # a<=c
 ELSE2:  mov		eax, DWORD PTR [c]
 		jmp		OUT						# return c
+
 # a<=b
 ELSE1:  mov		eax, DWORD PTR [b]
-		mov 	ebx, DWORD PTR [c]
-		cmp 	eax, ebx				# b>c ?
+		mov		ebx, DWORD PTR [c]
+		cmp		eax, ebx				# b>c ?
 		jle		ELSE3
 		mov		eax, DWORD PTR [b]		# return b
-		jmp 	OUT
+		jmp		OUT
 ELSE3:
-		mov 	eax, DWORD PTR [c]		# return c
+		mov		eax, DWORD PTR [c]		# return c
 OUT:	ret
 
 
